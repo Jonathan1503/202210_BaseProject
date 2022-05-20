@@ -1,24 +1,33 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
+
+  <div class="container-fluid">
+  <div class="row form-group">
+    <div class="col-6">
         <div class="card">
           <table class="table">
             <thead class="thead">
               <tr>
-                  <th>#Id</th>
+                  <th>Id</th>
                   <th>Name</th>
                   <th>Country</th>
               </tr>
           </thead>
           <tbody *ngFor="let maravilla of maravillas">
-                    <td>{{maravilla.id}} </td>
-                     <td >{{maravilla.name}} </td>
-                     <td>{{maravilla.country}}</td>
+                    <td (click)="onSelected(maravilla)">{{maravilla.id}} </td>
+                     <td (click)="onSelected(maravilla)">{{maravilla.name}} </td>
+                     <td (click)="onSelected(maravilla)">{{maravilla.country}}</td>
           </tbody>
 
         </table>
         </div>
     </div>
+    <div class="col-4">
+      <div class="card">
+        <div *ngIf="selected">
+          <app-maravilla-detail [maravillaDetail]="selectedMaravilla"></app-maravilla-detail>
+      </div>
+      </div>
+
+  </div>
 
   </div>
 </div>
